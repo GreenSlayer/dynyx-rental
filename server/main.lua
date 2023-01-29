@@ -1,24 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
---[[
-RegisterServerEvent('dynyx-rental:getpapers')
-AddEventHandler('dynyx-rental:getpapers', function(plate, model, money)
-    local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
-    local info = {}
-    info.citizenid = Player.PlayerData.citizenid
-    info.firstname = Player.PlayerData.charinfo.firstname
-    info.lastname = Player.PlayerData.charinfo.lastname
-    info.plate = plate
-    info.model = model
-    TriggerClientEvent('inventory:client:ItemBox', src,  QBCore.Shared.Items["rentalpapers"], 'add')
-    Player.Functions.AddItem('rentalpapers', 1, false, info)
-    Player.Functions.RemoveMoney('bank', money, "vehicle-rental")
-end)
-
-]]--
-
-
 RegisterNetEvent('dynyx-rental:getpapers', function(licenseplate, model)
     local src = source
     local Player = QBCore.Functions.GetPlayer(src)
