@@ -4,7 +4,7 @@ Advanced QBCore Vehicle Rental Script
 | Join my discord server [here](https://discord.gg/A4gVRjnvaE) |
 | ------------------------------------------------------------ |
 
-## Preview: https://streamable.com/it5fck
+## Preview: https://youtu.be/fy_axW1O31o
 
 ## How to Install
 1. Drag dynyx-rental into your resources folder then ensure dynyx-rental in your cfg file.
