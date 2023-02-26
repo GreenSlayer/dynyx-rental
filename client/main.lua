@@ -2,359 +2,8 @@ local QBCore = exports['qb-core']:GetCoreObject()
 local SpawnVehicle = false
 
 
-CreateThread(function()
-  exports['qb-target']:AddBoxZone("rentvehicle", vector3(110.51, -1091.03, 29.3), 1.5, 1.5, {
-    name = "rentvehicle",
-    heading = 15,
-    debugPoly = false,
-    minZ = 27.0,
-    maxZ = 32.0,
-  }, {
-    options = {
-      {
-        type = "client",
-        event = "dynyx-rental:OpenCarRental",
-        icon = 'fas fa-car',
-        label = 'Rent Vehicle'
-      },
-    },
-    distance = 2.0
-  })
-  exports['qb-target']:AddBoxZone("rentAir", vector3(-1621.33, -3152.94, 13.99), 1.5, 1.5, {
-    name = "rentAir",
-    heading = 0,
-    debugPoly = false,
-    minZ = 10.0,
-    maxZ = 15.0,
-  }, {
-    options = {
-      {
-        type = "client",
-        event = "dynyx-rental:OpenAirRental",
-        icon = 'fas fa-plane',
-        label = 'Rent Vehicle'
-      },
-    },
-    distance = 2.0
-  })
-end)
-
-
-RegisterNetEvent('dynyx-rental:OpenCarRental', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Buffalo",
-          txt = "$750.00",
-          params = {
-              event = "dynyx-rental:RentBuffalo",
-          }
-      },
-      {
-          id = 2,
-          header = "Bison",
-          txt = "$500.00",
-          params = {
-              event = "dynyx-rental:RentBison",
-          }
-      },
-      {
-          id = 3,
-          header = "Sanchez",
-          txt = "$2500.00",
-          params = {
-              event = "dynyx-rental:RentSanchez",
-          }
-      },
-      {
-          id = 4,
-          header = "Futo",
-          txt = "$600.00",
-          params = {
-              event = "dynyx-rental:RentFuto",
-          }
-      },
-      {
-        id = 5,
-        header = "Moped",
-        txt = "$750.00",
-        params = {
-            event = "dynyx-rental:RentMoped",
-        }
-    },
-    {
-      id = 6,
-      header = "Limo",
-      txt = "$1500.00",
-      params = {
-          event = "dynyx-rental:RentLimo",
-      }
-  },
-  {
-    id = 7,
-    header = "Tour Bus",
-    txt = "$800.00",
-    params = {
-        event = "dynyx-rental:RentTourBus",
-    }
-},
-{
-  id = 8,
-  header = "Taco Truck",
-  txt = "$800.00",
-  params = {
-      event = "dynyx-rental:RentTaco",
-  }
-},
-{
-  id = 9,
-  header = "Shuttle Bus",
-  txt = "$800.00",
-  params = {
-      event = "dynyx-rental:RentRentalBus",
-  }
-},
-{
-  id = 10,
-  header = "Return Vehicle",
-  params = {
-      event = "dynyx-rental:ReturnVehicle",
-
-  }
-},
-  })
-end)
-
-
-
-
-RegisterNetEvent('dynyx-rental:RentBuffalo', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'buffalo',
-              money = config.VehiclePrices.buffalo,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentBison', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'bison',
-              money = config.VehiclePrices.bison,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentFuto', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'futo',
-              money = config.VehiclePrices.futo,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentSanchez', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'sanchez',
-              money = config.VehiclePrices.sanchez,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentMoped', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'faggio',
-              money = config.VehiclePrices.faggio,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentLimo', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'stretch',
-              money = config.VehiclePrices.stretch,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentTourBus', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'tourbus',
-              money = config.VehiclePrices.tourbus,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentTaco', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'taco',
-              money = config.VehiclePrices.taco,
-          }
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentRentalBus', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenCarRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startrental",
-            args = {
-              model = 'rentalbus',
-              money = config.VehiclePrices.rentalbus,
-          }
-
-        }
-    },
-  })
-end)
-
-
---Ped Spawn for vehicle rental
-
-CreateThread(function()
+--Ped Spawn
+function SpawnPed()
   RequestModel( GetHashKey( config.RentalLocations.cars.pedname ) )
   while ( not HasModelLoaded( GetHashKey( config.RentalLocations.cars.pedname ) ) ) do
       Citizen.Wait( 1 )
@@ -364,9 +13,278 @@ CreateThread(function()
   SetEntityInvincible(carrental, true)
   SetBlockingOfNonTemporaryEvents(carrental, true)
   TaskStartScenarioInPlace(carrental, 'WORLD_HUMAN_CLIPBOARD', 0, true)
+
+  RequestModel( GetHashKey( config.RentalLocations.aircrafts.pedname ) )
+  while ( not HasModelLoaded( GetHashKey( config.RentalLocations.aircrafts.pedname ) ) ) do
+      Citizen.Wait( 1 )
+  end
+  aircraftrental = CreatePed(1, config.RentalLocations.aircrafts.pedhash, config.RentalLocations.aircrafts.pedspawn, false, true)
+  FreezeEntityPosition(aircraftrental, true)
+  SetEntityInvincible(aircraftrental, true)
+  SetBlockingOfNonTemporaryEvents(aircraftrental, true)
+  TaskStartScenarioInPlace(aircraftrental, 'WORLD_HUMAN_CLIPBOARD', 0, true)
+
+  RequestModel( GetHashKey( config.RentalLocations.boat.pedname ) )
+  while ( not HasModelLoaded( GetHashKey( config.RentalLocations.boat.pedname ) ) ) do
+      Citizen.Wait( 1 )
+  end
+  boatrental = CreatePed(1, config.RentalLocations.boat.pedhash, config.RentalLocations.boat.pedspawn, false, true)
+  FreezeEntityPosition(boatrental, true)
+  SetEntityInvincible(boatrental, true)
+  SetBlockingOfNonTemporaryEvents(boatrental, true)
+  TaskStartScenarioInPlace(boatrental, 'WORLD_HUMAN_CLIPBOARD', 0, true)
+
+  RequestModel( GetHashKey( config.RentalLocations.bike.pedname ) )
+  while ( not HasModelLoaded( GetHashKey( config.RentalLocations.bike.pedname ) ) ) do
+      Citizen.Wait( 1 )
+  end
+  bikerental = CreatePed(1, config.RentalLocations.bike.pedhash, config.RentalLocations.bike.pedspawn, false, true)
+  FreezeEntityPosition(bikerental, true)
+  SetEntityInvincible(bikerental, true)
+  SetBlockingOfNonTemporaryEvents(bikerental, true)
+  TaskStartScenarioInPlace(bikerental, 'WORLD_HUMAN_CLIPBOARD', 0, true)
+end
+
+-- Blips
+function RentalBlips()
+  CarRentalBlip = AddBlipForCoord(config.RentalLocations.cars.pedspawn)
+  SetBlipSprite (CarRentalBlip, 225)
+  SetBlipDisplay(CarRentalBlip, 6)
+  SetBlipScale  (CarRentalBlip, 0.65)
+  SetBlipAsShortRange(CarRentalBlip, true)
+  SetBlipColour(CarRentalBlip, 2)
+  BeginTextCommandSetBlipName("STRING")
+  AddTextComponentSubstringPlayerName('Car Rental')
+  EndTextCommandSetBlipName(CarRentalBlip)
+
+  AirRentalBlip = AddBlipForCoord(config.RentalLocations.aircrafts.pedspawn)
+  SetBlipSprite (AirRentalBlip, 307)
+  SetBlipDisplay(AirRentalBlip, 6)
+  SetBlipScale  (AirRentalBlip, 0.65)
+  SetBlipAsShortRange(AirRentalBlip, true)
+  SetBlipColour(AirRentalBlip, 2)
+  BeginTextCommandSetBlipName("STRING")
+  AddTextComponentSubstringPlayerName('Aircraft Rentals')
+  EndTextCommandSetBlipName(AirRentalBlip)
+
+  BoatRentalBlip = AddBlipForCoord(config.RentalLocations.boat.pedspawn)
+  SetBlipSprite (BoatRentalBlip, 427)
+  SetBlipDisplay(BoatRentalBlip, 6)
+  SetBlipScale  (BoatRentalBlip, 0.65)
+  SetBlipAsShortRange(BoatRentalBlip, true)
+  SetBlipColour(BoatRentalBlip, 2)
+  BeginTextCommandSetBlipName("STRING")
+  AddTextComponentSubstringPlayerName('Boat Rentals')
+  EndTextCommandSetBlipName(BoatRentalBlip)
+
+  BikeRentalBlip = AddBlipForCoord(config.RentalLocations.bike.pedspawn)
+  SetBlipSprite (BikeRentalBlip, 226)
+  SetBlipDisplay(BikeRentalBlip, 6)
+  SetBlipScale  (BikeRentalBlip, 0.65)
+  SetBlipAsShortRange(BikeRentalBlip, true)
+  SetBlipColour(BikeRentalBlip, 2)
+  BeginTextCommandSetBlipName("STRING")
+  AddTextComponentSubstringPlayerName('Bike Rentals')
+  EndTextCommandSetBlipName(BikeRentalBlip)
+end  
+
+
+CreateThread(function()
+  SpawnPed()
+  RentalBlips()
+  exports['qb-target']:AddBoxZone("rentvehicle", config.RentalLocations.cars.pedspawn, 1.5, 1.5, {
+    name = "rentvehicle",
+    heading = 15,
+    debugPoly = false,
+    minZ = 27.0,
+    maxZ = 32.0,
+  }, {
+    options = {
+      {
+        type = "client",
+        event = "dynyx-rental:client:OpenCarRental",
+        icon = 'fas fa-car',
+        label = 'Rent Vehicle'
+      },
+      {
+        type = "client",
+        event = "dynyx-rental:ReturnVehicle",
+        icon = 'fa-solid fa-rotate-left',
+        label = 'Return Vehicle'
+      },
+    },
+    distance = 2.0
+  })
+  exports['qb-target']:AddBoxZone("rentAir", config.RentalLocations.aircrafts.pedspawn, 1.5, 1.5, {
+    name = "rentAir",
+    heading = 0,
+    debugPoly = false,
+    minZ = 10.0,
+    maxZ = 15.0,
+  }, {
+    options = {
+      {
+        type = "client",
+        event = "dynyx-rental:client:OpenAirRental",
+        icon = 'fas fa-plane',
+        label = 'Rent Vehicle'
+      },
+      {
+        type = "client",
+        event = "dynyx-rental:ReturnVehicle",
+        icon = 'fa-solid fa-rotate-left',
+        label = 'Return Vehicle'
+      },
+    },
+    distance = 2.0
+  })
+  exports['qb-target']:AddBoxZone("rentBoat", config.RentalLocations.boat.pedspawn, 1.5, 1.5, {
+    name = "rentBoat",
+    heading = 0,
+    debugPoly = false,
+    minZ = 0.5,
+    maxZ = 3.0,
+  }, {
+    options = {
+      {
+        type = "client",
+        event = "dynyx-rental:client:OpenBoatRental",
+        icon = 'fa-solid fa-sailboat',
+        label = 'Rent Vehicle'
+      },
+      {
+        type = "client",
+        event = "dynyx-rental:ReturnVehicle",
+        icon = 'fa-solid fa-rotate-left',
+        label = 'Return Vehicle'
+      },
+    },
+    distance = 2.0
+  })
+  exports['qb-target']:AddBoxZone("rentBike", config.RentalLocations.bike.pedspawn, 1.5, 1.5, {
+    name = "rentBike",
+    heading = 0,
+    debugPoly = false,
+    minZ = 1.5,
+    maxZ = 5.0,
+  }, {
+    options = {
+      {
+        type = "client",
+        event = "dynyx-rental:client:OpenBikeRental",
+        icon = 'fa-solid fa-bicycle',
+        label = 'Rent Vehicle'
+      },
+      {
+        type = "client",
+        event = "dynyx-rental:ReturnVehicle",
+        icon = 'fa-solid fa-rotate-left',
+        label = 'Return Vehicle'
+      },
+    },
+    distance = 3.0
+  })
 end)
 
+--Emails functions
 
+function CarRStartEmail()
+  TriggerServerEvent('qb-phone:server:sendNewMail', {
+    sender = 'Car Rental',
+    subject = 'Purchase Complete',
+    message = 'Thanks you for your purchase, be sure to return your rental vehicle.',
+    button = {}
+})
+end
+
+function AirRStartEmail()
+  TriggerServerEvent('qb-phone:server:sendNewMail', {
+    sender = 'Aircraft Rental',
+    subject = 'Purchase Complete',
+    message = 'Thanks you for your purchase, be sure to return your rental vehicle.',
+    button = {}
+})
+end
+
+function BoatRStartEmail()
+  TriggerServerEvent('qb-phone:server:sendNewMail', {
+    sender = 'Boat Rental',
+    subject = 'Purchase Complete',
+    message = 'Thanks you for your purchase, be sure to return your rental vehicle.',
+    button = {}
+})
+end
+
+function BikeRStartEmail()
+  TriggerServerEvent('qb-phone:server:sendNewMail', {
+    sender = 'Bike Rental',
+    subject = 'Purchase Complete',
+    message = 'Thanks you for your purchase, be sure to return your rental vehicle.',
+    button = {}
+})
+end
+
+
+----------------------------------------------------------------------------------------------------------
+------------------------------------------CAR RENTAL------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+RegisterNetEvent("dynyx-rental:client:OpenCarRental", function()
+  local CarRental = {
+      {
+          header = 'Current Available Rentals',
+          icon = 'fa-solid fa-square-info',
+          isMenuHeader = true
+      }
+  }
+  for k, v in pairs(config.CarRental) do
+    CarRental[#CarRental + 1] = {
+          header = v.header,
+          txt = '$' ..v.price..'.00',
+          params = {
+              event = 'dynyx-rental:client:CarConfirm',
+              args = {
+                model = v.carhash,
+                money = v.price,
+            }
+          }
+      }
+  end
+  exports['qb-menu']:openMenu(CarRental)
+end)
+
+--submenu
+RegisterNetEvent('dynyx-rental:client:CarConfirm', function(data)
+  local money = data.money
+  local model = data.model
+  exports['qb-menu']:openMenu({
+      {
+          header = 'Go Back',
+          icon = 'fa solid fa-less-than',
+          params = {
+            event = 'dynyx-rental:client:OpenCarRental',
+        }
+      },
+      {
+          header = 'Confirm Purchase',
+          icon = 'fa-solid fa-square-check',
+          params = {
+              event = 'dynyx-rental:startrental',
+              args = {
+                model = data.model,
+                money = data.money,
+              }
+          }
+      },
+      {
+        header = 'Cancel Purchase',
+        icon = 'fa-solid fa-square-xmark',
+        params = {
+          event = 'close edit later',
+      }
+    }
+  })
+end)
 
 RegisterNetEvent('dynyx-rental:startrental')
 AddEventHandler('dynyx-rental:startrental', function(data)
@@ -386,7 +304,7 @@ AddEventHandler('dynyx-rental:startrental', function(data)
   QBCore.Functions.TriggerCallback("dynyx-rental:CheckMoney",function(money)
     if money then
       QBCore.Functions.SpawnVehicle(model, function(vehicle)
-        QBCore.Functions.Progressbar("random_task", "Renting Vehicle", 3000, false, true, {
+        QBCore.Functions.Progressbar("random_task", "Renting", 3000, false, true, {
           disableMovement = true,
           disableCarMovement = true,
           disableMouse = false,
@@ -400,7 +318,8 @@ AddEventHandler('dynyx-rental:startrental', function(data)
       end, function() -- Cancel
          StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
        end)
-        SetEntityHeading(vehicle, 340.0)
+        SetEntityHeading(vehicle, config.RentalLocations.cars.heading)
+        CarRStartEmail()
         TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
         exports[config.Fuelexport]:SetFuel(vehicle, 100.0)
         SpawnVehicle = true
@@ -443,493 +362,65 @@ RegisterNetEvent('dynyx-rental:ReturnVehicle', function()
   SpawnVehicle = false
 end)
 
+----------------------------------------------------------------------------------------------------------
+------------------------------------------AIR RENTAL------------------------------------------------------
+----------------------------------------------------------------------------------------------------------
 
-CreateThread(function()
-  MakeBlips()
-end)
-
-function MakeBlips()
-  CarRentalBlip = AddBlipForCoord(vector3(111.4223, -1081.24, 29.192))
-  SetBlipSprite (CarRentalBlip, 225)
-  SetBlipDisplay(CarRentalBlip, 6)
-  SetBlipScale  (CarRentalBlip, 0.65)
-  SetBlipAsShortRange(CarRentalBlip, true)
-  SetBlipColour(CarRentalBlip, 50)
-  BeginTextCommandSetBlipName("STRING")
-  AddTextComponentSubstringPlayerName('Car Rental')
-  EndTextCommandSetBlipName(CarRentalBlip)
-
-  AirRentalBlip = AddBlipForCoord(vector3(-1621.42, -3152.44, 13.99))
-  SetBlipSprite (AirRentalBlip, 307)
-  SetBlipDisplay(AirRentalBlip, 6)
-  SetBlipScale  (AirRentalBlip, 0.85)
-  SetBlipAsShortRange(AirRentalBlip, true)
-  SetBlipColour(AirRentalBlip, 69)
-  BeginTextCommandSetBlipName("STRING")
-  AddTextComponentSubstringPlayerName('Aircraft Rentals')
-  EndTextCommandSetBlipName(AirRentalBlip)
-end  
-
------------------------------------------------------------------ AIR RENTAL
-
-
-RegisterNetEvent('dynyx-rental:OpenAirRental', function()
-  exports['qb-menu']:openMenu({
+RegisterNetEvent("dynyx-rental:client:OpenAirRental", function()
+  local AirRental = {
       {
-          id = 1,
-          header = "Micro Light (Plane)",
-          txt = "$2500.00",
-          params = {
-              event = "dynyx-rental:RentMicroLight",
-          }
-      },
-      {
-          id = 2,
-          header = "Duster (Plane)",
-          txt = "$3000.00",
-          params = {
-              event = "dynyx-rental:RentDuster",
-          }
-      },
-      {
-          id = 3,
-          header = "Mammatus (Plane)",
-          txt = "$5000.00",
-          params = {
-              event = "dynyx-rental:RentMammatus",
-          }
-      },
-      {
-          id = 4,
-          header = "Stunt (Plane)",
-          txt = "$4000.00",
-          params = {
-              event = "dynyx-rental:RentStunt",
-          }
-      },
-      {
-        id = 5,
-        header = "Shamal (Plane)",
-        txt = "$7500.00",
-        params = {
-            event = "dynyx-rental:RentShamal",
-        }
-    },
-    {
-      id = 6,
-      header = "Velum (Plane)",
-      txt = "$6500.00",
-      params = {
-          event = "dynyx-rental:RentVelum",
+          header = 'Current Available Rentals',
+          icon = 'fa-solid fa-square-info',
+          isMenuHeader = true
       }
-  },
-  {
-    id = 7,
-    header = "Vestra (Plane)",
-    txt = "$6500.00",
-    params = {
-        event = "dynyx-rental:RentVestra",
-    }
-},
-{
-  id = 8,
-  header = "Alpha Z1 (Plane)",
-  txt = "$10000.00",
-  params = {
-      event = "dynyx-rental:RentAlphaZ1",
   }
-},
-{
-  id = 9,
-  header = "Dodo (Plane)",
-  txt = "$5000.00",
-  params = {
-      event = "dynyx-rental:RentDodo",
-  }
-},
-{
-  id = 10,
-  header = "Sea Sparrow (Helicopters)",
-  txt = "$2500.00",
-  params = {
-      event = "dynyx-rental:RentSeaSparrow",
-  }
-},
-{
-  id = 11,
-  header = "Sparrow (Helicopters)",
-  txt = "$2000.00",
-  params = {
-      event = "dynyx-rental:RentSparrow",
-  }
-},
-{
-  id = 12,
-  header = "Frogger (Helicopters)",
-  txt = "$3500.00",
-  params = {
-      event = "dynyx-rental:RentFrogger",
-  }
-},
-{
-  id = 13,
-  header = "Havok (Helicopters)",
-  txt = "$2000.00",
-  params = {
-      event = "dynyx-rental:RentHavok",
-  }
-},
-{
-  id = 14,
-  header = "Return Vehicle",
-  params = {
-      event = "dynyx-rental:ReturnVehicle",
-
-  }
-},
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentMicroLight', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
+  for k, v in pairs(config.AirRental) do
+    AirRental[#AirRental + 1] = {
+          header = v.header,
+          txt = '$' ..v.price..'.00',
           params = {
-              event = "dynyx-rental:OpenAirRental",
-
+              event = 'dynyx-rental:client:AirConfirm',
+              args = {
+                model = v.carhash,
+                money = v.price,
+            }
           }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'microlight',
-              money = config.VehiclePrices.microlight,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentDuster', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'duster',
-              money = config.VehiclePrices.duster,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentMammatus', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'mammatus',
-              money = config.VehiclePrices.mammatus,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentStunt', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'stunt',
-              money = config.VehiclePrices.stunt,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentShamal', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'shamal',
-              money = config.VehiclePrices.shamal,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:Rentvelum', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'velum',
-              money = config.VehiclePrices.velum,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentVestra', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'vestra',
-              money = config.VehiclePrices.vestra,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentAlphaZ1', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'alphaz1',
-              money = config.VehiclePrices.alphaz1,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentDodo', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'dodo',
-              money = config.VehiclePrices.dodo,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentSeaSparrow', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'seasparrow',
-              money = config.VehiclePrices.seasparrow,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentSparrow', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'seasparrow2',
-              money = config.VehiclePrices.seasparrow2,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentHavok', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'havok',
-              money = config.VehiclePrices.havok,
-          }
-
-        }
-    },
-  })
-end)
-
-RegisterNetEvent('dynyx-rental:RentFrogger', function()
-  exports['qb-menu']:openMenu({
-      {
-          id = 1,
-          header = "Back",
-          params = {
-              event = "dynyx-rental:OpenAirRental",
-
-          }
-      },
-      {
-        id = 2,
-        header = "Confirm Purchase",
-        params = {
-            event = "dynyx-rental:startAirRental",
-            args = {
-              model = 'frogger',
-              money = config.VehiclePrices.frogger,
-          }
-
-        }
-    },
-  })
-end)
-
--- Ped Spawn for Aircraft 
-
-CreateThread(function()
-  RequestModel( GetHashKey( config.RentalLocations.aircrafts.pedname ) )
-  while ( not HasModelLoaded( GetHashKey( config.RentalLocations.aircrafts.pedname ) ) ) do
-      Citizen.Wait( 1 )
+      }
   end
-  aircraftrental = CreatePed(1, config.RentalLocations.aircrafts.pedhash, config.RentalLocations.aircrafts.pedspawn, false, true)
-  FreezeEntityPosition(aircraftrental, true)
-  SetEntityInvincible(aircraftrental, true)
-  SetBlockingOfNonTemporaryEvents(aircraftrental, true)
-  TaskStartScenarioInPlace(aircraftrental, 'WORLD_HUMAN_CLIPBOARD', 0, true)
+  exports['qb-menu']:openMenu(AirRental)
 end)
 
-RegisterNetEvent('dynyx-rental:startAirRental', function(data)
+--submenu
+RegisterNetEvent('dynyx-rental:client:AirConfirm', function(data)
+  local money = data.money
+  local model = data.model
+  exports['qb-menu']:openMenu({
+      {
+          header = 'Go Back',
+          icon = 'fa solid fa-less-than',
+          params = {
+            event = 'dynyx-rental:client:OpenAirRental',
+        }
+      },
+      {
+          header = 'Confirm Purchase',
+          icon = 'fa-solid fa-square-check',
+          params = {
+              event = 'dynyx-rental:client:startAirRental',
+              args = {
+                model = data.model,
+                money = data.money,
+              }
+          }
+      },
+      {
+        header = 'Cancel Purchase',
+        icon = 'fa-solid fa-square-xmark',
+    }
+  })
+end)
+
+RegisterNetEvent('dynyx-rental:client:startAirRental', function(data)
   local player = PlayerPedId()
   local money = data.money
   local model = data.model
@@ -946,7 +437,7 @@ RegisterNetEvent('dynyx-rental:startAirRental', function(data)
   QBCore.Functions.TriggerCallback("dynyx-rental:CheckMoney",function(money)
     if money then
       QBCore.Functions.SpawnVehicle(model, function(vehicle)
-        QBCore.Functions.Progressbar("random_task", "Renting AirCraft", 3000, false, true, {
+        QBCore.Functions.Progressbar("random_task", "Renting", 3000, false, true, {
           disableMovement = true,
           disableCarMovement = true,
           disableMouse = false,
@@ -960,11 +451,220 @@ RegisterNetEvent('dynyx-rental:startAirRental', function(data)
       end, function() -- Cancel
          StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
        end)
-        SetEntityHeading(vehicle, 340.0)
+        SetEntityHeading(vehicle, config.RentalLocations.aircrafts.heading)
+        AirRStartEmail()
         TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
         exports[config.Fuelexport]:SetFuel(vehicle, 100.0)
         SpawnVehicle = true
       end, config.RentalLocations.aircrafts.vehiclespawn, true)
+      Wait(1000)
+      local vehicle = GetVehiclePedIsIn(player, false)
+      TriggerServerEvent('dynyx-rental:getpapers', GetVehicleNumberPlateText(vehicle), model)
+    else
+      QBCore.Functions.Notify("Not Enough Money", "error")
+    end
+  end, money)
+end)
+
+----------------------------------------------------------------------------------------------------------
+------------------------------------------BOATS RENTAL----------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+RegisterNetEvent("dynyx-rental:client:OpenBoatRental", function()
+  local BoatRental = {
+      {
+          header = 'Current Available Rentals',
+          icon = 'fa-solid fa-square-info',
+          isMenuHeader = true
+      }
+  }
+  for k, v in pairs(config.BoatRental) do
+    BoatRental[#BoatRental + 1] = {
+          header = v.header,
+          txt = '$' ..v.price..'.00',
+          params = {
+              event = 'dynyx-rental:client:BoatConfirm',
+              args = {
+                model = v.carhash,
+                money = v.price,
+            }
+          }
+      }
+  end
+  exports['qb-menu']:openMenu(BoatRental)
+end)
+
+--submenu
+RegisterNetEvent('dynyx-rental:client:BoatConfirm', function(data)
+  local money = data.money
+  local model = data.model
+  exports['qb-menu']:openMenu({
+      {
+          header = 'Go Back',
+          icon = 'fa solid fa-less-than',
+          params = {
+            event = 'dynyx-rental:client:OpenBoatRental',
+        }
+      },
+      {
+          header = 'Confirm Purchase',
+          icon = 'fa-solid fa-square-check',
+          params = {
+              event = 'dynyx-rental:client:startBoatRental',
+              args = {
+                model = data.model,
+                money = data.money,
+              }
+          }
+      },
+      {
+        header = 'Cancel Purchase',
+        icon = 'fa-solid fa-square-xmark',
+    }
+  })
+end)
+
+RegisterNetEvent('dynyx-rental:client:startBoatRental', function(data)
+  local player = PlayerPedId()
+  local money = data.money
+  local model = data.model
+  if IsAnyVehicleNearPoint(config.RentalLocations.boat.vehiclespawn.x, config.RentalLocations.boat.vehiclespawn.y, config.RentalLocations.boat.vehiclespawn.z, 2.5) then
+    QBCore.Functions.Notify("There is a Vehicle in the Way.", "error")
+    return
+  end
+
+  if IsAnyPedNearPoint(config.RentalLocations.boat.vehiclespawn.x, config.RentalLocations.boat.vehiclespawn.y, config.RentalLocations.boat.vehiclespawn.z, 2.5) then
+    QBCore.Functions.Notify("There is a Player in the way.", "error")
+    return
+  end
+
+  QBCore.Functions.TriggerCallback("dynyx-rental:CheckMoney",function(money)
+    if money then
+      QBCore.Functions.SpawnVehicle(model, function(vehicle)
+        QBCore.Functions.Progressbar("random_task", "Renting", 3000, false, true, {
+          disableMovement = true,
+          disableCarMovement = true,
+          disableMouse = false,
+          disableCombat = true,
+        }, {
+          animDict = "mp_action",
+          anim = "thanks_male_06",
+          flags = 18,
+       }, {}, {}, function() -- Done
+        StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
+      end, function() -- Cancel
+         StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
+       end)
+        SetEntityHeading(vehicle, config.RentalLocations.boat.heading)
+        BoatRStartEmail()
+        TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
+        exports[config.Fuelexport]:SetFuel(vehicle, 100.0)
+        SpawnVehicle = true
+      end, config.RentalLocations.boat.vehiclespawn, true)
+      Wait(1000)
+      local vehicle = GetVehiclePedIsIn(player, false)
+      TriggerServerEvent('dynyx-rental:getpapers', GetVehicleNumberPlateText(vehicle), model)
+    else
+      QBCore.Functions.Notify("Not Enough Money", "error")
+    end
+  end, money)
+end)
+
+----------------------------------------------------------------------------------------------------------
+------------------------------------------BIKES RENTAL----------------------------------------------------
+----------------------------------------------------------------------------------------------------------
+
+RegisterNetEvent("dynyx-rental:client:OpenBikeRental", function()
+  local BikeRental = {
+      {
+          header = 'Current Available Rentals',
+          icon = 'fa-solid fa-square-info',
+          isMenuHeader = true
+      }
+  }
+  for k, v in pairs(config.BikeRental) do
+    BikeRental[#BikeRental + 1] = {
+          header = v.header,
+          txt = '$' ..v.price..'.00',
+          params = {
+              event = 'dynyx-rental:client:BikeConfirm',
+              args = {
+                model = v.carhash,
+                money = v.price,
+            }
+          }
+      }
+  end
+  exports['qb-menu']:openMenu(BikeRental)
+end)
+
+--submenu
+RegisterNetEvent('dynyx-rental:client:BikeConfirm', function(data)
+  local money = data.money
+  local model = data.model
+  exports['qb-menu']:openMenu({
+      {
+          header = 'Go Back',
+          icon = 'fa solid fa-less-than',
+          params = {
+            event = 'dynyx-rental:client:OpenBikeRental',
+        }
+      },
+      {
+          header = 'Confirm Purchase',
+          icon = 'fa-solid fa-square-check',
+          params = {
+              event = 'dynyx-rental:client:startBikeRental',
+              args = {
+                model = data.model,
+                money = data.money,
+              }
+          }
+      },
+      {
+        header = 'Cancel Purchase',
+        icon = 'fa-solid fa-square-xmark',
+    }
+  })
+end)
+
+RegisterNetEvent('dynyx-rental:client:startBikeRental', function(data)
+  local player = PlayerPedId()
+  local money = data.money
+  local model = data.model
+  if IsAnyVehicleNearPoint(config.RentalLocations.bike.vehiclespawn.x, config.RentalLocations.bike.vehiclespawn.y, config.RentalLocations.bike.vehiclespawn.z, 2.5) then
+    QBCore.Functions.Notify("There is a Vehicle in the Way.", "error")
+    return
+  end
+
+  if IsAnyPedNearPoint(config.RentalLocations.bike.vehiclespawn.x, config.RentalLocations.bike.vehiclespawn.y, config.RentalLocations.bike.vehiclespawn.z, 2.5) then
+    QBCore.Functions.Notify("There is a Player in the way.", "error")
+    return
+  end
+
+  QBCore.Functions.TriggerCallback("dynyx-rental:CheckMoney",function(money)
+    if money then
+      QBCore.Functions.SpawnVehicle(model, function(vehicle)
+        QBCore.Functions.Progressbar("random_task", "Renting", 3000, false, true, {
+          disableMovement = true,
+          disableCarMovement = true,
+          disableMouse = false,
+          disableCombat = true,
+        }, {
+          animDict = "mp_action",
+          anim = "thanks_male_06",
+          flags = 18,
+       }, {}, {}, function() -- Done
+        StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
+      end, function() -- Cancel
+         StopAnimTask(PlayerPedId(), "mp_action", "thanks_male_06", 1.0)
+       end)
+        SetEntityHeading(vehicle, config.RentalLocations.bike.heading)
+        BikeRStartEmail()
+        TriggerEvent("vehiclekeys:client:SetOwner", GetVehicleNumberPlateText(vehicle))
+        exports[config.Fuelexport]:SetFuel(vehicle, 100.0)
+        SpawnVehicle = true
+      end, config.RentalLocations.bike.vehiclespawn, true)
       Wait(1000)
       local vehicle = GetVehiclePedIsIn(player, false)
       TriggerServerEvent('dynyx-rental:getpapers', GetVehicleNumberPlateText(vehicle), model)
