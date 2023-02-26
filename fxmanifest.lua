@@ -2,9 +2,9 @@ fx_version 'cerulean'
 game 'gta5'
 
 name "dynyx-rental"
-description "Vehicle Rental Script Made For DynyxRP"
+description "Vehicle Rental Script Made By Green"
 author "Green"
-version "1.0."
+version "1.5."
 
 client_scripts {
 	'@PolyZone/client.lua',
